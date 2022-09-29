@@ -1,0 +1,78 @@
+<!-- <pre>
+  {{usuario | json}}
+</pre> -->
+
+<mat-card>
+  <mat-toolbar>{{titleDialog}}</mat-toolbar>
+
+    <mat-grid-list cols="4" rowHeight="60px">
+
+        <mat-grid-tile [colspan]="4" [rowspan]="1" *ngIf="usuario.idUsuario != 0">
+            <mat-form-field >
+                <input matInput placeholder="NOMBRE" [(ngModel)]="usuario.username" disabled="true" />
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="4" [rowspan]="1" *ngIf="usuario.idUsuario === 0">
+          <mat-form-field >
+              <input matInput placeholder="NOMBRE  ej.(username@site.com)" [(ngModel)]="usuario.username" matTooltip="El usuario es un correo"/>
+          </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="4" [rowspan]="1" *ngIf="usuario.idUsuario === 0">
+        <mat-form-field >
+            <input matInput placeholder="CONTRASEÑA  *Sera cifrada" [(ngModel)]="usuario.password" matTooltip="Capture la Contraseña "/>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="4" [rowspan]="1" *ngIf="usuario.idUsuario != 0">
+        <mat-form-field>
+          <mat-label>ROLES</mat-label>
+          <mat-select multiple matTooltip="Seleccione los Roles"  [compareWith]="compareRolesFn" [(ngModel)]="usuario.roles">
+            <mat-select-trigger>
+              {{ usuario.roles.length > 0 ? usuario.roles[0].nombre : '' }}
+              <span *ngIf="usuario.roles.length > 1" class="example-additional-selection" >
+                (+{{usuario.roles.length - 1}}  {{usuario.roles.length === 2 ? 'other' : 'others' }} )
+              </span>
+            </mat-select-trigger>
+            <mat-option *ngFor="let rol of roles" [value]="rol">
+              {{rol.idRol}} - {{rol.descripcion}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="4" [rowspan]="1" *ngIf="usuario.idUsuario === 0">
+        <mat-form-field>
+          <mat-label>ROLES</mat-label>
+          <mat-select multiple matTooltip="Seleccione los Roles">
+            <mat-select-trigger>
+              {{ usuario.roles.length > 0 ? usuario.roles[0].nombre : '' }}
+              <span *ngIf="usuario.roles.length > 1" class="example-additional-selection" >
+                (+{{usuario.roles.length - 1}}  {{usuario.roles.length === 2 ? 'other' : 'others' }} )
+              </span>
+            </mat-select-trigger>
+            <mat-option *ngFor="let rol of roles" [value]="rol">
+              {{rol.idRol}} - {{rol.descripcion}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="4" [rowspan]="1">
+        <label class="example-radio-group-label">HABILITADO:</label>
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="usuario.enabled">
+          <mat-radio-button class="example-radio-button" *ngFor="let opcion of opciones" [value]="opcion.val">
+          {{ opcion.op }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="4" [rowspan]="1">
+            <button mat-raised-button color="white" (click)="cerrar()" >Cancelar</button>
+            <button mat-raised-button color="primary" (click)="operar()" style="margin-left: 20px">Aceptar</button>
+        </mat-grid-tile>
+    </mat-grid-list>
+</mat-card>
+
+

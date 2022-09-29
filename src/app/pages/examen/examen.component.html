@@ -1,0 +1,57 @@
+<mat-toolbar>Lista de examenes</mat-toolbar>
+
+<router-outlet></router-outlet>
+
+  <div class="container search_bar">
+    <button class="button-search" mat-raised-button routerLink='/examen/nuevo' matTooltip="Nuevo registro"><mat-icon>add</mat-icon>Create</button>
+    <mat-form-field class="search-form-field" floatLabel="never">
+        <input matInput (keyup)="filtrar($event.target.value)" placeholder="Buscar examen" />
+    </mat-form-field>
+  </div>
+
+
+  <div class="container mat-elevation-z8">
+
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.idExamen}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nombre">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.nombre}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="descripcion">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Descripcion </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.descripcion}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button
+          mat-button
+          color="primary"
+          [routerLink]="['edicion', row.idExamen]"
+          matTooltip="Editar">
+          <mat-icon>launch</mat-icon></button>
+        <button
+          mat-button
+          color="accent"
+          (click)="eliminar(row)"
+          matTooltip="Eliminar">
+          <mat-icon>delete_outline</mat-icon></button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+

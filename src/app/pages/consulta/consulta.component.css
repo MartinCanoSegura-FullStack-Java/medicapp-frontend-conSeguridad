@@ -1,0 +1,32 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .example-container>* {
+    width: 100%;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .expansion-panel {
+    width: 45%;
+     align-content: flex-end;
+  }
+
+  .fielset-izq{
+    width: 45%; height: 80%;
+    border-top: lightgray solid;
+    border-bottom: lightgray solid;
+    border-left: lightgray solid;
+  }
+
+  .fielset-der{
+    width: 45%; height: 80%;
+    border-top: lightgray solid;
+    border-bottom: lightgray solid;
+    border-right: lightgray solid;
+      overflow-y: scroll;
+  }

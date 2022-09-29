@@ -1,0 +1,68 @@
+
+<div class="container">
+    <form [formGroup]="form" #signosForm="ngForm" (ngSubmit)="operar()">
+        <mat-card >
+          <mat-toolbar> {{titulo}} {{nombrePaciente}} </mat-toolbar>
+            <mat-grid-list cols="4" rowHeight="100px">
+              <div [hidden]="true">
+                <mat-form-field>
+                    <input matInput required formControlName="idSignos" />
+                </mat-form-field>
+              </div>
+
+              <mat-grid-tile [colspan]="3" [rowspan]="6">
+                  <img src="./assets/img/SignosVitales.png" width="250" height="250" />
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                  <mat-form-field>
+                      <input  matInput [matDatepicker]="picker"  placeholder="Escoge una fecha"  [max]="maxFecha"  formControlName="fecha"
+                              [(ngModel)]="fechaSeleccionada"  autocomplete="off" />
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                  <mat-form-field >
+                      <mat-label>Pulso cardiaco</mat-label>
+                      <input  matInput placeholder="Pulso cardiaco" minlength="2" maxlength="3" required
+                              formControlName="pulso" type="number" autocomplete="off"/>
+                      <small *ngIf="f.pulso.errors?.required && f.pulso.touched" class="invalido">Pulso es campo requerido</small>
+                      <small *ngIf="f.pulso.errors?.minlength && f.pulso.touched" class="invalido">El pulso es incorrecto</small
+                      >
+                      <small *ngIf="f.pulso.errors?.maxlength && f.pulso.touched" class="invalido">El pulso cardiaco es demasiado alto</small
+                      >
+                  </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                  <mat-form-field>
+                      <input  matInput placeholder="Ritmo cardiaco" minlength="2" maxlength="3" required
+                              formControlName="ritmo" type="number" autocomplete="off"/>
+                      <small *ngIf="f.ritmo.errors?.required && f.ritmo.touched" class="invalido">Ritmo es campo requerido</small>
+                      <small *ngIf="f.ritmo.errors?.minlength && f.ritmo.touched" class="invalido">El ritmo es incorrecto</small>
+                      <small *ngIf="f.ritmo.errors?.maxlength && f.ritmo.touched" class="invalido">El ritmo es demasiado alto</small>
+                  </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                  <mat-form-field>
+                      <input  matInput placeholder="Temperatura" minlength="2" maxlength="3" required
+                              formControlName="temperatura" type="number" autocomplete="off"/>
+                      <small *ngIf="f.temperatura.errors?.required && f.temperatura.touched" class="invalido">La temperatura es campo requerido</small>
+                      <small *ngIf="f.temperatura.errors?.minlength && f.temperatura.touched" class="invalido">La temperatura es incorrecta</small
+                      >
+                      <small *ngIf="f.temperatura.errors?.maxlength && f.temperatura.touched" class="invalido">La temperatura es demasido alta</small>
+                  </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                  <button mat-raised-button color="primary" type="submit" [disabled]="signosForm.invalid">
+                      <mat-icon>done</mat-icon>
+                      <span>Aceptar</span>
+                  </button>
+                  <button mat-raised-button color="accent" routerLink="/signos" type="button" style="margin-left: 20px">
+                      <mat-icon>close</mat-icon>
+                      <span>Cancelar</span>
+                  </button>
+              </mat-grid-tile>
+            </mat-grid-list>
+        </mat-card>
+    </form>
+</div>

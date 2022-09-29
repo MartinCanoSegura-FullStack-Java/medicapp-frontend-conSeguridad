@@ -1,0 +1,84 @@
+.medicoCSS {
+    background: darkblue;
+    color: white;
+}
+
+.consultorioCSS {
+    background: darkblue;
+    color: white;
+}
+
+#consultorio {
+    height: 100%;
+    width: 100%;
+    background-color: #555;
+    color: white;
+    text-align: center;
+}
+
+
+.example-card {
+  max-width: 400px;
+  /* overflow-x: scroll; */
+}
+
+.container {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 5px;
+  overflow-x: auto;
+}
+
+.example-header-image {
+  /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+  background-size: cover;
+}
+/* ------------------------------------------------------------------------------------------------- */
+.imagen{
+  width: 150px;
+  height: 180px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.card{
+  width: 210px;
+  height: 300px;
+}
+
+
+/* ------------------------------------------------------------------------------------------------- */
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+}
+.example-container > * {
+    width: 100%;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.expansion-panel {
+    width: 45%;
+    align-content: flex-end;
+}
+
+.fielset-izq {
+    width: 45%;
+    height: 80%;
+    border-top: lightgray solid;
+    border-bottom: lightgray solid;
+    border-left: lightgray solid;
+}
+
+.fielset-der {
+    width: 45%;
+    height: 80%;
+    border-top: lightgray solid;
+    border-bottom: lightgray solid;
+    border-right: lightgray solid;
+    overflow-y: auto;
+}

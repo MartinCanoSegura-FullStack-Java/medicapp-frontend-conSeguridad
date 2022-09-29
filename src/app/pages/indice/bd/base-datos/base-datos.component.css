@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 15px;
+}
+
+.container ol, p {
+  margin: 5px;
+  background-color: rgb(250, 246, 246);
+  border: 1px solid;
+  border-color: silver;
+}
+
+ol, p {
+  padding: 5px;
+}

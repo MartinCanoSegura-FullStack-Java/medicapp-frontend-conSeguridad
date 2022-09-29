@@ -1,0 +1,49 @@
+<mat-card>
+<mat-grid-list cols="4" rowHeight="60px">
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <mat-form-field class="ancho">
+            <input matInput placeholder="Nombres" [(ngModel)]="medico.nombres"/>
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="5" >
+        <img mat-card-image [src]="medico.fotoUrl" alt="" width="90%" height="90%" *ngIf="medico.fotoUrl != null" />
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <mat-form-field class="ancho">
+            <input matInput placeholder="Apellidos" [(ngModel)]="medico.apellidos" />
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <mat-form-field class="ancho">
+            <input matInput placeholder="CMP" [(ngModel)]="medico.cmp" max="15" maxlength="15" type="number" />
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+      <mat-form-field class="ancho">
+            <!-- <button mat-raised-button><mat-icon>search</mat-icon>Load</button> -->
+            <input matInput placeholder="foto" [(ngModel)]="medico.fotoUrl" />
+          </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <button mat-raised-button color="primary" (click)="operar()">Aceptar</button>
+        <button mat-raised-button color="accent" (click)="cerrar()"  style="margin-left: 20px">Cancelar</button>
+    </mat-grid-tile>
+</mat-grid-list>
+</mat-card>
+<!--
+<div>
+    <mat-form-field>
+
+    </mat-form-field>
+    <mat-form-field>
+
+    </mat-form-field>
+    <mat-form-field>
+
+    </mat-form-field>
+    <mat-form-field>
+
+    </mat-form-field>
+
+</div>
+ -->

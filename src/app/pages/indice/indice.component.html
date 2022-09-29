@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="menu">
+      <ng-material-multilevel-menu
+        [configuration]='config'
+        [items]='appItems'
+        (selectedItem)="selectedItem($event)">
+      </ng-material-multilevel-menu>
+  </div>
+
+  <div class="demos">
+    <div class="heading">
+        <h1>Consultorio Médico</h1>
+        <span class="short-desc">Registro de Consultas</span>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="credit">
+    <h2>Developed by
+      mecano_mcs@hotmail.com
+    </h2>
+    <br />
+    <!-- <h3><a href="http://www.codershood.info" target="_blank">WWW.CODERSHOOD.INFO</a></h3> -->
+  <!-- </div> -->
+  <!-- <div class="contact">
+    <button class="plugin-button" mat-button color="primary" (click)="redirect('http://www.codershood.info/contact/')">
+      Contact
+    </button>
+    <button class="plugin-button" mat-button color="primary" (click)="redirect('http://www.codershood.info/')">
+      Blog
+    </button>
+    <button class="plugin-button" mat-button color="primary" (click)="redirect('https://github.com/ShankyTiwari')">
+      Github
+    </button>
+  </div> -->
+</div>
+

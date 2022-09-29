@@ -1,0 +1,41 @@
+<div class="container">
+    <form class="example-container" [formGroup]="form" #frmExamen="ngForm" (ngSubmit)="operar()">
+        <mat-card style="margin-top: 10px; margin-right: 20px; margin-left: 20px">
+            <mat-toolbar>{{ titulo }}</mat-toolbar>
+            <mat-grid-list cols="4" rowHeight="100px">
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                  <div [hidden]="true">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="ID" required formControlName="id" />
+                      </mat-form-field>
+                  </div>
+
+                  <mat-form-field class="example-full-width ancho">
+                      <input matInput placeholder="Nombre" required formControlName="nombre" autocomplete="off" />
+                  </mat-form-field>
+                </mat-grid-tile>
+
+                <mat-grid-tile [colspan]="2" [rowspan]="3">
+                  <img src="./assets/img/user.png" width="250" height="250" />
+                </mat-grid-tile>
+
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="ancho">
+                        <input matInput placeholder="Descripción" required formControlName="descripcion" autocomplete="off" />
+                    </mat-form-field>
+                </mat-grid-tile>
+
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <button mat-raised-button color="primary" type="submit" [disabled]="frmExamen.invalid">
+                        <mat-icon>done</mat-icon>
+                        <span>Aceptar</span>
+                    </button>
+                    <button mat-raised-button color="accent" routerLink="/examen" type="button" style="margin-left: 20px">
+                        <mat-icon>close</mat-icon>
+                        <span>Cancelar</span>
+                    </button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </mat-card>
+    </form>
+</div>

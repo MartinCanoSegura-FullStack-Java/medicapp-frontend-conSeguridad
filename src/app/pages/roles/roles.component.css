@@ -1,0 +1,21 @@
+/*https://stackoverflow.com/questions/53020792/how-to-set-width-of-mat-table-column-in-angular/53023265*/
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  margin-top: 10px;
+}
+
+th {
+  vertical-align: middle;
+}
+
+.toolbar {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: darkgray;
+  margin-left: 2em;
+}

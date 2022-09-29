@@ -1,0 +1,38 @@
+
+.example-card {
+  max-width: 400px;
+  /* overflow-x: scroll; */
+}
+
+.container {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 5px;
+  overflow-x: auto;
+}
+
+.example-header-image {
+  /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+  background-size: cover;
+}
+/* ------------------------------------------------------------------------------------------------- */
+.imagen{
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+}
+
+.card{
+  width: 500px;
+  height: 600px;
+  border: 10px;
+}
+
+.pdf {
+  width: 400px;
+  height: 200px;
+}
+
+mat-card-content {
+  align-items: center;
+}

@@ -1,0 +1,14 @@
+
+.mat-grid.tile {
+  align-items: initial;
+
+}
+
+mat-form-field{
+  width:100%;
+}
+
+.button-create{
+  margin-left:10%;
+  width: 220px;
+}

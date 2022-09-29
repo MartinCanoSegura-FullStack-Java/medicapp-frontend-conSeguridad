@@ -1,0 +1,68 @@
+
+
+<router-outlet></router-outlet>
+
+
+
+<div  [hidden]="route.children.length !== 0" class="container">
+
+  <mat-toolbar>PACIENTES</mat-toolbar>
+
+  <div class="search_bar">
+      <button class="button-search" mat-raised-button routerLink="/paciente/nuevo" matTooltip="Nuevo registro">
+          <mat-icon>add</mat-icon>Nuevo
+      </button>
+      <mat-form-field class="search-form-field" floatLabel="never">
+          <input matInput (keyup)="filtrar($event.target.value)" placeholder="Buscar paciente" />
+      </mat-form-field>
+  </div>
+
+  <div class="mat-elevation-z8">
+      <mat-table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="idPaciente">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{ element.idPaciente }}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="nombres">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Nombres</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{ element.nombres }}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="apellidos">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Apellidos</mat-header-cell>
+              <mat-cell *matCellDef="let element">{{ element.apellidos }}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="acciones">
+              <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+              <mat-cell *matCellDef="let element">
+
+                <!-- <button mat-button color="primary" [routerLink]="['edicion', element.idPaciente]" matTooltip="Signos Vitales"> -->
+                <button mat-button color="primary" (click)="navegaSignos(element.idPaciente)" matTooltip="Signos Vitales">
+                  <mat-icon matBadge={{element.totalSignos}} matBadgeColor="warn" matBadgeSize="small">assessment</mat-icon>
+                </button>
+
+                  <button mat-button color="primary" [routerLink]="['edicion', element.idPaciente]" matTooltip="Editar">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+
+                  <button mat-button color="delete" (click)="eliminar(element.idPaciente)" matTooltip="Eliminar">
+                      <mat-icon>delete_outline</mat-icon>
+                  </button>
+                </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">No hay datos que coincidan con el filtro "{{ input.value }}"</td>
+          </tr>
+      </mat-table>
+
+        <mat-paginator [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" [length]="cantidad" (page)="mostrarMas($event)"></mat-paginator>
+  </div>
+  <br/>
+</div>

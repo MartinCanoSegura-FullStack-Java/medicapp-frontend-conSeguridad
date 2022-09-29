@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+}
+
+.barra {
+  text-align: center;
+  /* font 400 24 px/32px Roboto, "helvetica Nue", sans-serif; */
+  font-size: 24px;
+  font-family: sans-serif;
+  letter-spacing: normal;
+  padding: 15px;
+}
+
+.example-card {
+  width: 300px;
+}

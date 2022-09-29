@@ -1,0 +1,31 @@
+
+<mat-card>
+    <mat-toolbar style="margin-bottom: 30px;">{{title}}</mat-toolbar>
+    <mat-grid-list cols="4" rowHeight="60px">
+
+        <!-- <mat-grid-tile [colspan]="4" [rowspan]="1" style="background-color: lightblue;">
+            <mat-form-field class="ancho">
+                <input matInput placeholder="ID" [(ngModel)]="rol.idRol" />
+            </mat-form-field>
+          </mat-grid-tile> -->
+
+        <mat-grid-tile [colspan]="4" [rowspan]="1">
+            <mat-form-field class="ancho">
+                <input matInput placeholder="Nommbre" [(ngModel)]="rol.nombre" />
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="4" [rowspan]="1">
+            <mat-form-field class="ancho">
+                <input matInput placeholder="Descripcion" [(ngModel)]="rol.descripcion" />
+            </mat-form-field>
+        </mat-grid-tile>
+
+
+        <mat-grid-tile [colspan]="4" [rowspan]="1">
+            <button mat-raised-button color="primary" (click)="operar()">Aceptar</button>
+            <button mat-raised-button color="accent" (click)="cerrar()" style="margin-left: 20px">Cancelar</button>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+</mat-card>

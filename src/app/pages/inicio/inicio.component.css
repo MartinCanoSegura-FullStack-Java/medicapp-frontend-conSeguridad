@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container p {
+  font-size: medium;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: silver;
+}
+
+.manual{
+  font-size: x-small;
+  color: silver;
+}

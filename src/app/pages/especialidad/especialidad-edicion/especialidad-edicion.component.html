@@ -1,0 +1,59 @@
+<div class="container">
+    <form class="example-container" [formGroup]="form" (ngSubmit)="operar()" #espForm="ngForm">
+        <mat-card>
+            <mat-toolbar>{{ title_toolbar }}</mat-toolbar>
+
+            <mat-grid-list cols="3" rowHeight="100px">
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <div [hidden]="true">
+                        <mat-form-field>
+                            <input matInput placeholder="ID" required formControlName="id" />
+                        </mat-form-field>
+                    </div>
+
+                    <mat-form-field class="example-full-width">
+                        <input
+                            matInput
+                            placeholder="Nombre Especialidad"
+                            required
+                            formControlName="nombre"
+                            autocomplete="off"
+                        />
+                    </mat-form-field>
+                </mat-grid-tile>
+
+                <mat-grid-tile [colspan]="2" [rowspan]="3">
+                    <img src="./assets/img/user.png" width="250" height="250" />
+                </mat-grid-tile>
+
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="example-full-width">
+                        <input
+                            matInput
+                            placeholder="Descripcion de la espcialidad"
+                            required
+                            formControlName="descripcion"
+                        />
+                    </mat-form-field>
+                </mat-grid-tile>
+
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <button mat-raised-button color="primary" type="submit" [disabled]="espForm.invalid">
+                        <mat-icon>done</mat-icon>
+                        <span>Aceptar</span>
+                    </button>
+                    <button
+                        mat-raised-button
+                        color="accent"
+                        routerLink="/especialidad"
+                        type="button"
+                        style="margin-left: 20px"
+                    >
+                        <mat-icon>close</mat-icon>
+                        <span>Cancelar</span>
+                    </button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </mat-card>
+    </form>
+</div>

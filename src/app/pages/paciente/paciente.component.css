@@ -1,0 +1,53 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 800px;
+}
+
+tr.no-data-row{
+  display: flex;
+  border-width: 0;
+  border-style: solid;
+  align-items: center;
+  box-sizing: border-box;
+
+}
+
+td {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  word-wrap: break-word;
+  min-height: inherit;
+  height: 100%;
+}
+
+.mat-column-acciones {
+  white-space: unset Imp !important;
+  width: 10% !important;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  text-align: center;
+}
+
+mat-icon {
+  color: black;
+}
+

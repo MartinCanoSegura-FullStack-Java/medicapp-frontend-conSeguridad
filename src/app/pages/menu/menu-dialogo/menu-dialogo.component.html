@@ -1,0 +1,71 @@
+<!-- <pre>
+  {{menu | json}}
+</pre> -->
+
+<mat-card>
+  <mat-toolbar>{{titleDialog}}</mat-toolbar>
+
+    <mat-grid-list cols="4" rowHeight="60px">
+
+      <mat-grid-tile [colspan]="4" [rowspan]="1">
+        <mat-form-field >
+            <input matInput placeholder="NOMBRE" [(ngModel)]="menu.nombre" matTooltip="Capture el Nombre "/>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="4" [rowspan]="1">
+        <mat-form-field >
+            <input matInput placeholder="ICONO" [(ngModel)]="menu.icono" matTooltip="Capture el cogo del Icono "/>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="4" [rowspan]="1">
+        <mat-form-field >
+            <input matInput placeholder="URL" [(ngModel)]="menu.url" matTooltip="Capture la Url "/>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="4" [rowspan]="1" *ngIf="menu.idMenu != 0">
+        <mat-form-field>
+          <mat-label>ROLES</mat-label>
+          <mat-select multiple matTooltip="Seleccione los Roles"  [compareWith]="compareRolesFn" [(ngModel)]="menu.roles">
+            <mat-select-trigger>
+              {{ menu.roles.length > 0 ? menu.roles[0].nombre : '' }}
+              <span *ngIf="menu.roles.length > 1" class="example-additional-selection" >
+                (+{{menu.roles.length - 1}}  {{menu.roles.length === 2 ? 'other' : 'others' }} )
+              </span>
+            </mat-select-trigger>
+            <mat-option *ngFor="let rol of roles" [value]="rol">
+              {{rol.idRol}} - {{rol.descripcion}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="4" [rowspan]="1" *ngIf="menu.idMenu === 0">
+        <mat-form-field>
+          <mat-label>ROLES</mat-label>
+          <mat-select multiple matTooltip="Seleccione los Roles" [(ngModel)]="menu.roles">
+            <mat-select-trigger>
+              {{ menu.roles.length > 0 ? menu.roles[0].nombre : '' }}
+              <span *ngIf="menu.roles.length > 1" class="example-additional-selection" >
+                (+{{menu.roles.length - 1}}  {{menu.roles.length === 2 ? 'other' : 'others' }} )
+              </span>
+            </mat-select-trigger>
+            <mat-option *ngFor="let rol of roles" [value]="rol">
+              {{rol.idRol}} - {{rol.descripcion}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+
+
+        <mat-grid-tile [colspan]="4" [rowspan]="1">
+            <button mat-raised-button color="white" (click)="cerrar()" >Cancelar</button>
+            <button mat-raised-button color="primary" (click)="operar()" style="margin-left: 20px">Aceptar</button>
+        </mat-grid-tile>
+    </mat-grid-list>
+</mat-card>
+
+

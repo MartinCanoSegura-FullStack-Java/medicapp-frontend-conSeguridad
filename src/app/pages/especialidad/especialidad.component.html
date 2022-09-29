@@ -1,0 +1,67 @@
+
+
+<router-outlet></router-outlet>
+
+<div [hidden]="route.children.length !== 0" class="container">
+
+    <mat-toolbar>Especialidades</mat-toolbar>
+
+    <div class="example-container mat-elevation-z8">
+        <div class="search_bar">
+            <button
+                class="button-search"
+                mat-raised-button
+                routerLink="/especialidad/nuevo"
+                matTooltip="Nuevo registro"
+            >
+                <mat-icon>add</mat-icon>Create
+            </button>
+            <mat-form-field class="search-form-field" floatLabel="never">
+                <input matInput (keyup)="filtrar($event.target.value)" #input placeholder="Buscar especialidad" />
+            </mat-form-field>
+        </div>
+
+        <mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.idEspecialidad }} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="nombre">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.nombre }} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="descripcion">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Descripcion </mat-header-cell>
+              <mat-cell *matCellDef="let row"> {{ row.descripcion }} </mat-cell>
+          </ng-container>
+
+            <ng-container matColumnDef="acciones">
+                <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <button
+                        mat-button
+                        color="primary"
+                        matTooltip="Editar registro"
+                        [routerLink]="['edicion', row.idEspecialidad]"
+                    >
+                        <mat-icon>launch</mat-icon>
+                    </button>
+                    <button mat-button color="warn" matTooltip="Eliminar registro" (click)="eliminar(row)">
+                        <mat-icon>delete_outline</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No hay datos que coincidan con el filtro: "{{ input.value }}"</td>
+            </tr>
+        </mat-table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+</div>

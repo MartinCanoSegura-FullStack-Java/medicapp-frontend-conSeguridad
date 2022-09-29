@@ -1,0 +1,35 @@
+<div class="container">
+
+    <p>Base de Datos: postgresql 42.2.16</p>
+
+    <ol>Tablas con Multiplicidad @ManyToOne
+      <li>* Paciente - Consulta</li>
+      <li>* Medico - Consulta</li>
+      <li>* Especialidad - Consulta</li>
+      <li>* DetalleConsulta - Consulta</li>
+      <li>* Signos - Paciente</li>
+    </ol>
+
+
+
+    <ol>Tablas con Multiplicidad @OneToMany
+      <li>* DetalleConsulta - Consulta</li>
+      <li>* Signos - Paciente</li>
+    </ol>
+
+
+
+    <ol>Tablas con Multiplicidad @ManyToMany
+      <li>* uniqueConstraints Menu - Rol</li>
+      <li>* uniqueConstraints Usuario - Rol</li>
+    </ol>
+
+
+
+    <ol>Tablas con llave primaria compuesta
+      <li>* ConsultaExamen</li>
+      <li>* usuario_rol</li>
+      <li>* menu_rol</li>
+    </ol>
+
+</div>

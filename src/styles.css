@@ -1,0 +1,62 @@
+/* @import "./assets/materialize/css/materialize.min.css"; */
+
+/* html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+} */
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-column-acciones {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 15% !important;
+    width: 10% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    word-break: break-word;
+
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    text-align: center;
+}
+
+.container {
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 5px;
+}
+
+.search-form-field {
+    /* width: 80%; */
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #fffdfd;
+    border-radius: 5px;
+}
+
+.search_bar {
+    display: flex;
+    max-height: 45px;
+    background-color: transparent;
+    margin-bottom: 10px;
+}
+
+.button-search{
+  width: 10%;
+}
+
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
